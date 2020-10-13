@@ -43,8 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6b713593a7b3b4dadd0e03f6bfabfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: "\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F
-    \u0432\u0438\u043D\u0442\u043E\u0432\u043A\u0430"
+  _label: Uzi
   _price: 50
   _icon: {fileID: 21300000, guid: 1158b7a23778a044c9e402ebec657042, type: 3}
   _isBought: 0
