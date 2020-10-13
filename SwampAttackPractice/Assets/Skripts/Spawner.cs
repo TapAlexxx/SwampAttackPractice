@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Spawner : MonoBehaviour
     private int _currentWaveNumber = 0;
     private float _timeFromLastSpawn;
     private int _spawned;
+
+    public event UnityAction AllEnemySpawned;
+    public event UnityAction<int, int> EnemyCountChanged;
 
     private void Start()
     {
@@ -30,10 +34,14 @@ public class Spawner : MonoBehaviour
             InstantiateEnemy();
             _spawned++;
             _timeFromLastSpawn = 0;
+            EnemyCountChanged?.Invoke(_spawned, _currentWave.Count);
         }
 
         if (_currentWave.Count <= _spawned)
         {
+            if (_waves.Count > _currentWaveNumber + 1)
+                AllEnemySpawned?.Invoke();
+
             _currentWave = null;
         }
     }
@@ -48,6 +56,13 @@ public class Spawner : MonoBehaviour
     private void SetWave(int waveNumber)
     {
         _currentWave = _waves[waveNumber];
+        EnemyCountChanged?.Invoke(0, 1);
+    }
+
+    public void NextWave()
+    {
+        SetWave(++_currentWaveNumber);
+        _spawned = 0;
     }
 
     private void OnEnemyDying(Enemy enemy)
