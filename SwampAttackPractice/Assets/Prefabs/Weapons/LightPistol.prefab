@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4048810741161638020
+--- !u!1 &5545430866457029360
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4007793177253554200}
-  - component: {fileID: 3313406931387705007}
+  - component: {fileID: 3004487879039382284}
+  - component: {fileID: 7910309759318209397}
   m_Layer: 0
-  m_Name: Auto-Rifle
+  m_Name: LightPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4007793177253554200
+--- !u!4 &3004487879039382284
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4048810741161638020}
+  m_GameObject: {fileID: 5545430866457029360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0012938, y: -2.172448, z: -7.687938}
+  m_LocalPosition: {x: -0.6717293, y: -2.522081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3313406931387705007
+--- !u!114 &7910309759318209397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4048810741161638020}
+  m_GameObject: {fileID: 5545430866457029360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6b713593a7b3b4dadd0e03f6bfabfb, type: 3}
+  m_Script: {fileID: 11500000, guid: ccc090bc71612db42af9624759255643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Uzi
-  _price: 50
-  _icon: {fileID: 21300000, guid: 1158b7a23778a044c9e402ebec657042, type: 3}
-  _isBought: 0
-  Bullet: {fileID: 9096009534566282104, guid: 72b6715109c006545abb5a491f0c9bf5, type: 3}
+  _label: Light Pistol
+  _price: 0
+  _icon: {fileID: 21300000, guid: 5ebe0bcee55c0ba41a18eab11b19b4a5, type: 3}
+  _isBought: 1
+  DelayBetweenShots: 0
+  Bullet: {fileID: 8705353686313165163, guid: 857e6f819599c9545a60d624610bea05, type: 3}

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
 
     private Weapon _currentWeapon;
+    private int _currentWeaponNumber;
     private int _currentHealth;
     private Animator _animator;
 
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _currentWeapon = _weapons[0];
+        ChangeWeapon(_weapons[_currentWeaponNumber]);
         _currentHealth = _health;
         _animator = GetComponent<Animator>();
     }
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _currentWeapon.Shoot(_shootPoint);
+            _animator.SetTrigger("Shoot");
         }
     }
 
@@ -47,11 +49,38 @@ public class Player : MonoBehaviour
     public void AddMoney(int money)
     {
         Money += money;
+        MoneyChanged?.Invoke(Money);
     }
 
     public void BuyWeapon(Weapon weapon)
     {
         Money -= weapon.Price;
+        MoneyChanged?.Invoke(Money);
         _weapons.Add(weapon);
+    }
+
+    public void NextWeapon()
+    {
+        if (_currentWeaponNumber == _weapons.Count - 1)
+            _currentWeaponNumber = 0;
+        else
+            _currentWeaponNumber++;
+
+        ChangeWeapon(_weapons[_currentWeaponNumber]);
+    }
+
+    public void PreviousWeapon()
+    {
+        if (_currentWeaponNumber == 0)
+            _currentWeaponNumber = _weapons.Count - 1;
+        else
+            _currentWeaponNumber--;
+
+        ChangeWeapon(_weapons[_currentWeaponNumber]);
+    }
+
+    private void ChangeWeapon(Weapon weapon)
+    {
+        _currentWeapon = weapon;
     }
 }

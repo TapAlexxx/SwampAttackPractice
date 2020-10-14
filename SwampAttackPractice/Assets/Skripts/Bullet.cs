@@ -19,5 +19,9 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
+        else if (collision.TryGetComponent(out BulletDestroyer destroyer))
+        {
+            Destroy(gameObject);
+        }
     }
 }
