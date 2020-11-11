@@ -5,6 +5,7 @@ using UnityEngine;
 public class Uzi : Weapon
 {
     [SerializeField] private float _shootPointSpread;
+
     public override void Shoot(Transform shootPoint)
     {
         float spread = Random.Range(-_shootPointSpread, _shootPointSpread);
